@@ -2044,6 +2044,20 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
   var rangeSlider = document.getElementById('slider-range');
   nouislider_distribute_nouislider_min__WEBPACK_IMPORTED_MODULE_7___default.a.create(rangeSlider, {
     start: [3],
+    tooltips: true,
+    step: 1,
+    connect: 'lower',
+    format: {
+      // 'to' the formatted value. Receives a number.
+      to: function to(value) {
+        return value + '';
+      },
+      // 'from' the formatted value.
+      // Receives a string, should return a number.
+      from: function from(value) {
+        return Number(value.replace(',-', ''));
+      }
+    },
     range: {
       'min': [0],
       'max': [40]
@@ -2063,6 +2077,7 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
     slidesPerView: 1,
     spaceBetween: 1,
     centeredSlides: false,
+    simulateTouch: false,
     navigation: {
       nextEl: '.quiz-form__nav-next',
       prevEl: '.quiz-form__nav-prev'

@@ -26,6 +26,20 @@ $(document).ready(function () {
 
     noUiSlider.create(rangeSlider, {
         start: [3],
+        tooltips: true,
+        step: 1,
+        connect: 'lower',
+        format: {
+          // 'to' the formatted value. Receives a number.
+          to: function (value) {
+              return value + '';
+          },
+          // 'from' the formatted value.
+          // Receives a string, should return a number.
+          from: function (value) {
+              return Number(value.replace(',-', ''));
+          }
+      },
         range: {
             'min': [0],
             'max': [40]
@@ -51,6 +65,7 @@ var swiper = new Swiper('.quiz-form__main .swiper-container', {
   slidesPerView: 1,
   spaceBetween: 1,
   centeredSlides: false,
+  simulateTouch: false,
   navigation: {
     nextEl: '.quiz-form__nav-next',
     prevEl: '.quiz-form__nav-prev',
