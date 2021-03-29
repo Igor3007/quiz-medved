@@ -1,0 +1,144 @@
+extends layouts/index
+include ../blocks/components/video/video
+include ../blocks/components/faq/faq.pug
+
+block variables
+  include ../data/data.pug
+
+
+
+block header
+
+
+block content
+
+  .container
+    .mv-quiz
+      .mv-quiz__wrp
+        .mv-quiz__start
+          .mv-quiz__start-bg: +bgimage('/img/common/start-bg.jpg')
+          .mv-quiz__start-main
+            .mv-quiz__start-title: h1 Выберите <span>идеальную дверь</span> за 1 минуту!
+            .mv-quiz__start-subtitle Ответьте всего на 4 вопроса и получите скидку 5%.
+            .mv-quiz__start-btn: button.mv-btn.mv-btn-full(data-test="start") Начать тест 
+
+          .mv-quiz__start-present
+            .mv-start-present
+              .mv-start-present__text Пройдите тест <br> и получите <span>скидку!</span>
+              .mv-start-present__image: +bgimage('/img/common/start-present.png')
+
+        .mv-quiz__form
+          form(action='#' method='POST')
+            .quiz-form
+              .quiz-form__head
+                .quiz-form__head-step Шаг
+                  span 2
+                  | из
+                  span 4
+                .quiz-form__head-dots ****
+              .quiz-form__main
+                .swiper-container
+                  .swiper-wrapper
+
+                    //- slide #1
+                    .swiper-slide
+                      .quiz-pane
+                        .quiz-pane__left
+                          .quiz-pane__title Куда выбираете дверь?
+                          .quiz-pane__subtitle Двери для улицы и для квартиры имеют принципиальные различия.
+                          .quiz-pane__content
+                            .mv-select-door
+                              .mv-select-door__item
+                                input(type="radio" name="door-type" value="В квартиру" id="type-door-room")
+                                label(for="type-door-room" class="select-door")
+                                  .select-door__image: +bgimage('/img/common/in-room.jpg')
+                                  .select-door__text В квартиру
+                              .mv-select-door__item
+                                input(type="radio" name="door-type" value="В дом" id="type-door-house")
+                                label(for="type-door-house"  class="select-door")
+                                  .select-door__image: +bgimage('/img/common/in-house.jpg')
+                                  .select-door__text В дом
+                        .quiz-pane__right
+                          .quiz-pane__sale
+                            .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
+                            .quiz-pane__sale-val 1
+                            span %
+
+                    //- slide #2
+                    .swiper-slide
+                      .quiz-pane
+                        .quiz-pane__left
+                          .quiz-pane__title Бюджет на покупку?
+                          .quiz-pane__subtitle Планирование бюджета - разумный, современный подход. Грамотное планирование вашего бюджета помогает сделать оптимальный выбор.
+                          .quiz-pane__content
+                            .budget
+                              .budget__input
+                                .budget__elem
+                                  .budget__elem-text от
+                                  .budget__elem-input: input(type="text" placeholder="0" name="budget-start")
+                                  .budget__elem-text до
+                                  .budget__elem-input: input(type="text" placeholder="0" name="budget-end")
+                              .budget__image
+                                +bgimage('../img/common/budget-slide.jpg')
+
+                        .quiz-pane__right
+                          .quiz-pane__sale
+                            .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
+                            .quiz-pane__sale-val 1
+                            span %
+
+                    //- slide #3
+                    .swiper-slide
+                      .quiz-pane
+                        .quiz-pane__left
+                          .quiz-pane__title Сколько Вы готовы ждать?
+                          .quiz-pane__subtitle Готовое решение устанавливается в течение <strong>3-5 дней.</strong> Производство двери под заказ требует в среднем от <strong>3-5 недель.</strong> 
+                          .quiz-pane__content
+                            .quiz-range
+                              #slider-range
+
+                        .quiz-pane__right
+                          .quiz-pane__sale
+                            .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
+                            .quiz-pane__sale-val 1
+                            span %
+
+                    //- slide #4
+                    .swiper-slide
+                      .quiz-pane
+                        .quiz-pane__left
+                          .quiz-pane__title Куда выбираете дверь?
+                          .quiz-pane__subtitle Двери для улицы и для квартиры имеют принципиальные различия.
+                          .quiz-pane__content
+                            .mv-select-door
+                              .mv-select-door__item
+                                input(type="radio" name="door-type" value="В квартиру" id="type-door-room")
+                                label(for="type-door-room" class="select-door")
+                                  .select-door__image: +bgimage('/img/common/in-room.jpg')
+                                  .select-door__text В квартиру
+                              .mv-select-door__item
+                                input(type="radio" name="door-type" value="В дом" id="type-door-house")
+                                label(for="type-door-house"  class="select-door")
+                                  .select-door__image: +bgimage('/img/common/in-house.jpg')
+                                  .select-door__text В дом
+                        .quiz-pane__right
+                          .quiz-pane__sale
+                            .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
+                            .quiz-pane__sale-val 1
+                            span %
+              .quiz-form__nav
+                .quiz-form__nav-prev: div.mv-back: +bgimage('/img/svg/ic_arrow-left.svg')
+                .quiz-form__nav-next: div.mv-btn 
+                  span Далее
+                  +bgimage('/img/svg/ic_arrow-right.svg')
+
+
+
+
+block footer
+
+
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")
