@@ -2062,65 +2062,83 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
       'min': [0],
       'max': [40]
     }
-  }); // swiper
+  });
+  rangeSlider.noUiSlider.on('update', function (values, handle, unencoded, tap, positions, noUiSlider) {
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-range__count span').text(values + ' дн');
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-range__input input').val(values + ' дн');
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-range__start').removeClass('visibility-hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-range__end').removeClass('visibility-hidden');
 
-  swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_3__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_3__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_3__["Autoplay"]]);
+    if (values == 0) {
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-range__start').addClass('visibility-hidden');
+    }
 
-  function updateFraction(slider) {
-    var params = slider.params,
-        activeIndex = slider.activeIndex;
-    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-form__head-step span').first().text(activeIndex + 1);
-    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-form__head-step span').last().text(slider.slides.length);
-  }
-
-  var swiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.quiz-form__main .swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 1,
-    centeredSlides: false,
-    simulateTouch: false,
-    navigation: {
-      nextEl: '.quiz-form__nav-next',
-      prevEl: '.quiz-form__nav-prev'
-    },
-    pagination: {
-      el: '.quiz-form__head-dots',
-      type: 'bullets',
-      clickable: true,
-      renderFraction: function renderFraction(currentClass, totalClass) {
-        return "\n      <span class=\"".concat(currentClass, "\"></span> \u0438\u0437\n      <span class=\"").concat(totalClass, "\"></span>");
-      }
-    },
-    breakpoints: {// 0: {
-      //   slidesPerView: 1.1,
-      //   spaceBetween: 15,
-      // },
-      // 580: {
-      //   slidesPerView: 1.2,
-      //   spaceBetween: 20,
-      // },
-      // 940: {
-      //   slidesPerView: 1.2,
-      //   spaceBetween: 20,
-      // },
-      // 1025: {
-      //   slidesPerView: 1.9,
-      // },
-    },
-    on: {
-      init: function init() {
-        setTimeout(updateFraction, 0, this);
-      },
-      slideChange: function slideChange() {
-        updateFraction(this);
-      },
-      resize: function resize() {
-        updateFraction(this);
-      }
+    if (values == 40) {
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-range__end').addClass('visibility-hidden');
     }
   }); //start 
 
   jquery__WEBPACK_IMPORTED_MODULE_5___default()('[data-test="start"]').on('click', function (event) {
     jquery__WEBPACK_IMPORTED_MODULE_5___default()('.mv-quiz__start').hide();
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.mv-quiz__form').show();
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.mv-quiz__wrp').addClass('open'); // swiper
+
+    swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_3__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_3__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_3__["Autoplay"]]);
+
+    function updateFraction(slider) {
+      var params = slider.params,
+          activeIndex = slider.activeIndex;
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-form__head-step span').first().text(activeIndex + 1);
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-form__head-step span').last().text(slider.slides.length);
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()('.quiz-form').attr('data-slide', '' + (activeIndex + 1) + '');
+    }
+
+    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.quiz-form__main .swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 1,
+      centeredSlides: false,
+      simulateTouch: false,
+      calculateHeight: true,
+      navigation: {
+        nextEl: '.quiz-form__nav-next',
+        prevEl: '.quiz-form__nav-prev'
+      },
+      pagination: {
+        el: '.quiz-form__head-dots',
+        type: 'bullets',
+        clickable: true,
+        renderFraction: function renderFraction(currentClass, totalClass) {
+          return "\n      <span class=\"".concat(currentClass, "\"></span> \u0438\u0437\n      <span class=\"").concat(totalClass, "\"></span>");
+        }
+      },
+      breakpoints: {// 0: {
+        //   slidesPerView: 1.1,
+        //   spaceBetween: 15,
+        // },
+        // 580: {
+        //   slidesPerView: 1.2,
+        //   spaceBetween: 20,
+        // },
+        // 940: {
+        //   slidesPerView: 1.2,
+        //   spaceBetween: 20,
+        // },
+        // 1025: {
+        //   slidesPerView: 1.9,
+        // },
+      },
+      on: {
+        init: function init() {
+          setTimeout(updateFraction, 0, this);
+        },
+        slideChange: function slideChange(event) {
+          updateFraction(this);
+        },
+        resize: function resize() {
+          updateFraction(this);
+        }
+      }
+    });
   });
 });
 

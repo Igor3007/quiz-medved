@@ -58,11 +58,14 @@ block content
                                 label(for="type-door-house"  class="select-door")
                                   .select-door__image: +bgimage('/img/common/in-house.jpg')
                                   .select-door__text В дом
-                        .quiz-pane__right
+                        .quiz-pane__right(style="background-image: url('/img/common/bg-right.jpg')")
                           .quiz-pane__sale
+                            .quiz-pane__mobile
+                              .quiz-pane__mobile-title Куда выбираете дверь?
+                              .quiz-pane__mobile-subtitle Двери для улицы и для квартиры имеют принципиальные различия.
                             .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
-                            .quiz-pane__sale-val 1
-                            span %
+                            .quiz-pane__sale-val 2
+                              span %
 
                     //- slide #2
                     .swiper-slide
@@ -81,11 +84,14 @@ block content
                               .budget__image
                                 +bgimage('../img/common/budget-slide.jpg')
 
-                        .quiz-pane__right
+                        .quiz-pane__right(style="background-image: url('/img/common/bg-right.jpg')")
                           .quiz-pane__sale
+                            .quiz-pane__mobile
+                              .quiz-pane__mobile-title Бюджет на покупку?
+                              .quiz-pane__mobile-subtitle Планирование бюджета - разумный, современный подход. Грамотное планирование вашего бюджета помогает сделать оптимальный выбор.
                             .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
-                            .quiz-pane__sale-val 1
-                            span %
+                            .quiz-pane__sale-val 3
+                              span %
 
                     //- slide #3
                     .swiper-slide
@@ -95,37 +101,53 @@ block content
                           .quiz-pane__subtitle Готовое решение устанавливается в течение <strong>3-5 дней.</strong> Производство двери под заказ требует в среднем от <strong>3-5 недель.</strong> 
                           .quiz-pane__content
                             .quiz-range
+                              .quiz-range__count: span 0 дн
+                              .quiz-range__input.hide: input(type="text" id="count-day" placeholder="0" name="count-day")
+                              .quiz-range__pips
+                                .quiz-range__start 0
+                                .quiz-range__end 40
+
                               #slider-range
 
-                        .quiz-pane__right
+                        .quiz-pane__right(style="background-image: url('/img/common/bg-right.jpg')")
                           .quiz-pane__sale
+                            .quiz-pane__mobile
+                              .quiz-pane__mobile-title Сколько Вы готовы ждать?
+                              .quiz-pane__mobile-subtitle Готовое решение устанавливается в течение <strong>3-5 дней.</strong> Производство двери под заказ требует в среднем от <strong>3-5 недель.</strong> 
                             .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
-                            .quiz-pane__sale-val 1
-                            span %
+                            .quiz-pane__sale-val 4
+                              span %
 
                     //- slide #4
                     .swiper-slide
-                      .quiz-pane
+                      .quiz-pane.quiz-pane--form
                         .quiz-pane__left
-                          .quiz-pane__title Куда выбираете дверь?
-                          .quiz-pane__subtitle Двери для улицы и для квартиры имеют принципиальные различия.
+                          .quiz-pane__title Заполните форму чтобы
                           .quiz-pane__content
-                            .mv-select-door
-                              .mv-select-door__item
-                                input(type="radio" name="door-type" value="В квартиру" id="type-door-room")
-                                label(for="type-door-room" class="select-door")
-                                  .select-door__image: +bgimage('/img/common/in-room.jpg')
-                                  .select-door__text В квартиру
-                              .mv-select-door__item
-                                input(type="radio" name="door-type" value="В дом" id="type-door-house")
-                                label(for="type-door-house"  class="select-door")
-                                  .select-door__image: +bgimage('/img/common/in-house.jpg')
-                                  .select-door__text В дом
+                            .form-list
+                              .form-list__lineup
+                                ul
+                                  li 1. <span>Забрать скидку 5%. </span>
+                                  li 2. Узнать точную стоимость двери. 
+                                  li 3. Вы можете оставить комментарий при необходимости.
+                              .form-list__bottom
+                                .form-list__image: +bgimage('./img/common/form-five-image.png')
+                                .form-list__arrow: +bgimage('./img/common/form-arrow-image.png')
                         .quiz-pane__right
-                          .quiz-pane__sale
-                            .quiz-pane__sale-text <span>Спасибо, что экономите наше время. </span>За ответ  на каждый вопрос вы <span>получаете 1% скидки.</span>
-                            .quiz-pane__sale-val 1
-                            span %
+                          .quiz-pane__form
+                            .form
+                              .form__label Введите имя
+                              .form__item: .form__subitem: input(type="text" placeholder="Анастасия" required="")
+
+                              .form__label <span>Введите телефон</span>
+                              .form__item: .form__subitem: input(type="text" placeholder="375 ()" required="")
+
+                              .form__label Оставьте комментарий
+                              .form__item: .form__subitem: textarea(placeholder="Сообщение..." required="")
+
+                              .form__item: button.mv-btn(type="submit")
+                                +bgimage('./img/svg/ic_submit.svg')
+                                span Узнать о двери мечты
               .quiz-form__nav
                 .quiz-form__nav-prev: div.mv-back: +bgimage('/img/svg/ic_arrow-left.svg')
                 .quiz-form__nav-next: div.mv-btn 

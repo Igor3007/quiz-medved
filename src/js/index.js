@@ -46,8 +46,35 @@ $(document).ready(function () {
         }
     });
 
+    rangeSlider.noUiSlider.on('update', function(values, handle, unencoded, tap, positions, noUiSlider){
+      $('.quiz-range__count span').text(values + ' дн')
+      $('.quiz-range__input input').val(values + ' дн')
 
-  // swiper
+      $('.quiz-range__start').removeClass('visibility-hidden')
+      $('.quiz-range__end').removeClass('visibility-hidden')
+
+      if(values == 0 ){
+        $('.quiz-range__start').addClass('visibility-hidden')
+      }
+      if(values == 40 ){
+        $('.quiz-range__end').addClass('visibility-hidden')
+      }
+    })
+
+
+ 
+
+
+
+  //start 
+  
+  $('[data-test="start"]').on('click', function(event){
+    
+    $('.mv-quiz__start').hide()
+    $('.mv-quiz__form').show()
+    $('.mv-quiz__wrp').addClass('open')
+
+     // swiper
 
   Swiper.use([Pagination, Navigation, Thumbs, Autoplay]);
 
@@ -58,6 +85,8 @@ $(document).ready(function () {
     $('.quiz-form__head-step span').first().text(activeIndex+1)
     $('.quiz-form__head-step span').last().text(slider.slides.length)
 
+    $('.quiz-form').attr('data-slide', ''+(activeIndex+1)+'')
+
   }
   
 var swiper = new Swiper('.quiz-form__main .swiper-container', {
@@ -66,6 +95,7 @@ var swiper = new Swiper('.quiz-form__main .swiper-container', {
   spaceBetween: 1,
   centeredSlides: false,
   simulateTouch: false,
+  calculateHeight:true,
   navigation: {
     nextEl: '.quiz-form__nav-next',
     prevEl: '.quiz-form__nav-prev',
@@ -99,7 +129,7 @@ var swiper = new Swiper('.quiz-form__main .swiper-container', {
     init() {
       setTimeout(updateFraction, 0, this);
     },
-    slideChange() {
+    slideChange(event) {
       updateFraction(this);
     },
     resize() {
@@ -108,14 +138,6 @@ var swiper = new Swiper('.quiz-form__main .swiper-container', {
   },
 
 });
-
-
-
-  //start 
-  
-  $('[data-test="start"]').on('click', function(event){
-    
-    $('.mv-quiz__start').hide()
     
   })
 
