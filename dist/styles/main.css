@@ -1971,7 +1971,6 @@ section {
 }
 
 .mv-quiz__start-title {
-  font-family: Muller;
   font-weight: bold;
   font-size: 1.5rem;
   line-height: 121.5%;
@@ -2253,10 +2252,11 @@ section {
   letter-spacing: -0.02em;
   color: #F5CE57;
   text-align: right;
+  font-size: 6.25rem;
 }
 
 .quiz-pane__sale-val span {
-  font-size: 4.8125rem;
+  font-size: 3.4375rem;
 }
 
 .quiz-pane__right {
@@ -2357,6 +2357,10 @@ section {
   box-shadow: 0px 3px 10px rgba(33, 72, 212, 0.38);
 }
 
+.swiper-slide.swiper-slide-active .quiz-pane__left {
+  display: block;
+}
+
 .budget {
   max-width: 36.25rem;
   margin-right: auto;
@@ -2396,7 +2400,7 @@ section {
   font-weight: bold;
   font-size: 1.375rem;
   color: #4E5365;
-  max-width: 3.125rem;
+  width: 3.125rem;
 }
 
 .budget__elem-text {
@@ -2409,6 +2413,20 @@ section {
 
 .visibility-hidden {
   visibility: hidden;
+}
+
+.mobile-dots {
+  margin-right: auto;
+}
+
+.mobile-dots .swiper-pagination-bullet {
+  margin-right: 10px;
+  background-color: #fff;
+  opacity: 1;
+}
+
+.mobile-dots .swiper-pagination-bullet-active {
+  background-color: #005CC9;
 }
 
 .quiz-range__pips {
@@ -2530,6 +2548,10 @@ section {
   font-size: 1.125rem;
   line-height: 140%;
   color: #797171;
+}
+
+.form .form__label span {
+  color: #005CC9;
 }
 
 .btn {
@@ -3644,6 +3666,12 @@ section {
   }
 }
 
+@media screen and (min-width: 769px) {
+  .mobile-dots {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1025px) {
   .hidden {
     margin-right: 17px;
@@ -3728,12 +3756,12 @@ section {
 
   .form .form__subitem input {
     font-size: 1rem;
-    padding: 0.85em 1.2em 0.65em 1.2em;
+    padding: 1.2em 1.2em 1.05em 1.2em;
   }
 
   .form .form__subitem textarea {
     font-size: 1rem;
-    padding: 0.85em 1.2em 0.65em 1.2em;
+    padding: 1.2em 1.2em 1.05em 1.2em;
   }
 
   .form .form__label {
@@ -3779,6 +3807,11 @@ section {
 
   .mv-quiz__form {
     position: relative;
+    height: auto;
+  }
+
+  .mv-quiz__form form {
+    height: auto;
   }
 
   .mv-quiz__start-title {
@@ -3790,6 +3823,20 @@ section {
     padding: 0 20px;
   }
 
+  .quiz-form {
+    height: auto;
+  }
+
+  .quiz-form__main {
+    flex-grow: 0;
+  }
+
+  .quiz-form .swiper-container,
+  .quiz-form .swiper-wrapper,
+  .quiz-form .swiper-slide {
+    height: auto;
+  }
+
   .quiz-form__head {
     display: none;
   }
@@ -3799,6 +3846,7 @@ section {
     background: #999;
     left: 0;
     right: 0;
+    padding: 0 2.1875rem;
   }
 
   .quiz-form[data-slide="4"] .quiz-form__nav,
@@ -3808,6 +3856,7 @@ section {
 
   .quiz-pane {
     flex-direction: column-reverse;
+    height: auto;
   }
 
   .quiz-pane--form {
@@ -3829,6 +3878,7 @@ section {
 
   .quiz-pane__left {
     padding: 1.875rem;
+    display: none;
   }
 
   .quiz-pane__sale {
@@ -4022,6 +4072,10 @@ section {
     text-align: center;
   }
 
+  .quiz-form__nav {
+    padding: 0 1.25rem;
+  }
+
   .quiz-pane__mobile-subtitle {
     font-size: 12px;
   }
@@ -4089,6 +4143,10 @@ section {
     display: none;
   }
 
+  .quiz-pane__mobile-title {
+    font-size: 20px;
+  }
+
   .quiz-pane__form .mv-btn {
     font-size: 0.875rem;
     height: 3.125rem;
@@ -4096,11 +4154,6 @@ section {
 
   .mv-select-door {
     flex-wrap: wrap;
-  }
-
-  .mv-select-door__item {
-    width: 100%;
-    margin-bottom: 10px;
   }
 
   .faq-item__title {

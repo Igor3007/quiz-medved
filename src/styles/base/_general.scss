@@ -302,20 +302,27 @@ $blue: #005CC9;
         display: none;
         @include layer(2);
 
+        height: 100%;
+
         @media screen and (max-width: $w760) {
             position: relative;
+            height: auto;
         }
-
-        height: 100%;
 
         & form {
             height: 100%;
+
+            @media screen and (max-width: $w760) {
+                height: auto;
+            }
         }
     }
 
     &__start {
         border-radius: 5px;
         height: 100%;
+
+
 
         &-bg {
             @include layer(3);
@@ -352,7 +359,6 @@ $blue: #005CC9;
         }
 
         &-title {
-            font-family: Muller;
             font-weight: bold;
             font-size: rem(24);
             line-height: 121.5%;
@@ -373,8 +379,9 @@ $blue: #005CC9;
 
             @media screen and (max-width: $w580) {
                 font-size: rem(16);
-
             }
+
+
 
             & span {
                 color: #ffca57
@@ -491,15 +498,26 @@ $blue: #005CC9;
     flex-direction: column;
     position: relative;
 
+    @media screen and (max-width: $w760) {
+        height: auto;
+    }
+
     &__main {
         flex-grow: 1;
 
+        @media screen and (max-width: $w760) {
+            flex-grow: 0;
+        }
     }
 
     & .swiper-container,
     & .swiper-wrapper,
     & .swiper-slide {
         height: 100%;
+
+        @media screen and (max-width: $w760) {
+            height: auto;
+        }
     }
 
     &__head {
@@ -562,6 +580,13 @@ $blue: #005CC9;
             background: #999;
             left: 0;
             right: 0;
+
+            padding: 0 rem(35);
+        }
+
+        @media screen and (max-width: $w480) {
+            padding: 0 rem(20);
+
         }
 
         & .mv-btn {
@@ -626,6 +651,7 @@ $blue: #005CC9;
 
     @media screen and (max-width: $w760) {
         flex-direction: column-reverse;
+        height: auto;
     }
 
     &--form {
@@ -675,6 +701,10 @@ $blue: #005CC9;
             letter-spacing: -0.02em;
             color: rgba(255, 255, 255, 0.89);
             margin-bottom: rem(20);
+
+            @media screen and (max-width: $w360) {
+                font-size: 20px;
+            }
         }
 
         &-subtitle {
@@ -747,6 +777,7 @@ $blue: #005CC9;
 
         @media screen and (max-width: $w760) {
             padding: rem(30);
+            display: none;
         }
 
         @media screen and (max-width: $w480) {
@@ -816,8 +847,10 @@ $blue: #005CC9;
 
             @media screen and (max-width: $w480) {}
 
+            font-size: rem(100);
+
             & span {
-                font-size: rem(77);
+                font-size: rem(55);
             }
         }
     }
@@ -949,8 +982,8 @@ $blue: #005CC9;
         }
 
         @media screen and (max-width: $w360) {
-            width: 100%;
-            margin-bottom: 10px;
+            // width: 100%;
+            // margin-bottom: 10px;
         }
 
         & label {
@@ -979,6 +1012,10 @@ $blue: #005CC9;
 .quiz-form__head-dots span.swiper-pagination-bullet-active {
     background: #005CC9;
     box-shadow: 0px 3px 10px rgba(33, 72, 212, 0.38);
+}
+
+.swiper-slide.swiper-slide-active .quiz-pane__left {
+    display: block;
 }
 
 .budget {
@@ -1021,7 +1058,7 @@ $blue: #005CC9;
                 font-weight: bold;
                 font-size: rem(22);
                 color: #4E5365;
-                max-width: rem(50);
+                width: rem(50);
             }
         }
 
@@ -1041,6 +1078,25 @@ $blue: #005CC9;
 
 .visibility-hidden {
     visibility: hidden;
+}
+
+.mobile-dots {
+
+    @media screen and (min-width: $w760) {
+        display: none;
+    }
+
+    margin-right: auto;
+
+    & .swiper-pagination-bullet {
+        margin-right: 10px;
+        background-color: #fff;
+        opacity: 1;
+    }
+
+    & .swiper-pagination-bullet-active {
+        background-color: #005CC9;
+    }
 }
 
 .quiz-range {
@@ -1157,7 +1213,7 @@ $blue: #005CC9;
 
             @media screen and (max-width: $w940) {
                 font-size: rem(16);
-                padding: 0.85em 1.2em 0.65em 1.2em;
+                padding: 1.2em 1.2em 1.05em 1.2em;
             }
         }
 
@@ -1178,7 +1234,7 @@ $blue: #005CC9;
 
             @media screen and (max-width: $w940) {
                 font-size: rem(16);
-                padding: 0.85em 1.2em 0.65em 1.2em;
+                padding: 1.2em 1.2em 1.05em 1.2em;
             }
         }
     }
@@ -1188,6 +1244,10 @@ $blue: #005CC9;
         font-size: rem(18);
         line-height: 140%;
         color: #797171;
+
+        & span {
+            color: #005CC9;
+        }
 
         @media screen and (max-width: $w940) {
             font-size: rem(16);

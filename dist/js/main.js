@@ -2040,7 +2040,20 @@ __webpack_require__.r(__webpack_exports__);
 
 _node_modules_svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_2___default()();
 jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
-  // vk
+  //resp input
+  jquery__WEBPACK_IMPORTED_MODULE_5___default()('.budget__elem-input input').on('keyup', function () {
+    var val = jquery__WEBPACK_IMPORTED_MODULE_5___default()(this).val();
+    val = val.length * 15;
+
+    if (val < 50) {
+      val = 50;
+    }
+
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()(this).css({
+      'width': val + 'px'
+    });
+  }); // vk
+
   var rangeSlider = document.getElementById('slider-range');
   nouislider_distribute_nouislider_min__WEBPACK_IMPORTED_MODULE_7___default.a.create(rangeSlider, {
     start: [3],
@@ -2081,7 +2094,14 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_5___default()('[data-test="start"]').on('click', function (event) {
     jquery__WEBPACK_IMPORTED_MODULE_5___default()('.mv-quiz__start').hide();
     jquery__WEBPACK_IMPORTED_MODULE_5___default()('.mv-quiz__form').show();
-    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.mv-quiz__wrp').addClass('open'); // swiper
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.mv-quiz__wrp').addClass('open');
+
+    if (jquery__WEBPACK_IMPORTED_MODULE_5___default()(window).width() < 760) {
+      var dotsContainer = '.mobile-dots';
+    } else {
+      var dotsContainer = '.quiz-form__head-dots';
+    } // swiper
+
 
     swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_3__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_3__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_3__["Autoplay"]]);
 
@@ -2104,7 +2124,7 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
         prevEl: '.quiz-form__nav-prev'
       },
       pagination: {
-        el: '.quiz-form__head-dots',
+        el: dotsContainer,
         type: 'bullets',
         clickable: true,
         renderFraction: function renderFraction(currentClass, totalClass) {
